@@ -54,8 +54,8 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     group = st.selectbox(
         "Patient Group",
-        options=[1, 2, 3, 4, 5],
-        help="1=心脑血管系统 | 2=消化系统 | 3=呼吸系统 | 4=感染 | 5=恶性肿瘤/创伤"
+        options=[1, 2, 3, 4, 5, 6],
+        help="1=Cardiovascular | 2=Gastrointestinal | 3=Respiratory | 4=Infection | 5=Malignancy | 6=Trauma"
     )
 with col2:
     ddplus = st.number_input("DDPLUS Score", min_value=0.0, max_value=100.0, value=50.0, step=1.0, help="Acute physiology score")
