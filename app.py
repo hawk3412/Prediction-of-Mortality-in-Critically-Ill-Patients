@@ -16,8 +16,6 @@ st.set_page_config(
 st.markdown("""
     <style>
     body { font-family: 'Segoe UI', sans-serif; }
-    .header { background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 100%); 
-              padding: 2rem; border-radius: 10px; margin-bottom: 2rem; color: white; }
     .metric-box { background: white; padding: 1.5rem; border-radius: 10px; 
                   border: 1px solid #e2e8f0; text-align: center; }
     .risk-high { border-left: 5px solid #dc2626; padding: 1.5rem; 
@@ -26,6 +24,7 @@ st.markdown("""
                      background: rgba(245, 158, 11, 0.05); border-radius: 10px; }
     .risk-low { border-left: 5px solid #059669; padding: 1.5rem; 
                 background: rgba(5, 150, 105, 0.05); border-radius: 10px; }
+    .tooltip-text { color: #666; font-size: 0.9rem; margin-top: 0.3rem; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -44,14 +43,8 @@ except Exception as e:
     st.stop()
 
 # Header
-st.markdown("""
-    <div class="header">
-        <h1>🏥 ICU Mortality Risk Assessment</h1>
-        <p>Prediction of Mortality in Critically Ill Patients</p>
-    </div>
-""", unsafe_allow_html=True)
-
-st.markdown("**Clinical decision support tool using XGBoost machine learning model**")
+st.title("🏥 ICU Mortality Risk Assessment")
+st.subheader("Prediction of Mortality in Critically Ill Patients")
 st.markdown("---")
 
 # Input Section
@@ -59,7 +52,11 @@ st.markdown("### 📋 Patient Clinical Parameters")
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    group = st.selectbox("Patient Group", options=[1, 2, 3, 4, 5], help="Risk stratification group (1-5)")
+    group = st.selectbox(
+        "Patient Group",
+        options=[1, 2, 3, 4, 5],
+        help="1=心脑血管系统 | 2=消化系统 | 3=呼吸系统 | 4=感染 | 5=恶性肿瘤/创伤"
+    )
 with col2:
     ddplus = st.number_input("DDPLUS Score", min_value=0.0, max_value=100.0, value=50.0, step=1.0, help="Acute physiology score")
 with col3:
