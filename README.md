@@ -1,1 +1,0 @@
-# Prediction-of-Mortality-in-Critically-Ill-Patients
