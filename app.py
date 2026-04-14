@@ -58,7 +58,7 @@ with col1:
         help="1=Cardiovascular | 2=Gastrointestinal | 3=Respiratory | 4=Infection | 5=Malignancy | 6=Trauma"
     )
 with col2:
-    ddplus = st.number_input("DDPLUS Score", min_value=0.0, max_value=100.0, value=50.0, step=1.0, help="Acute physiology score")
+    ddplus = st.number_input("DD", min_value=0.0, max_value=100.0, value=50.0, step=1.0, help="Acute physiology score")
 with col3:
     age = st.number_input("Age (years)", min_value=0, max_value=120, value=65, step=1, help="Patient age")
 with col4:
